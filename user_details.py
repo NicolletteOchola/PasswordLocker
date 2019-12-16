@@ -11,7 +11,7 @@ class User:
 	users_list = []
 	def __init__(self,firstName,lastName,password):
 		'''
-		Method to define the properties for each user object will hold.
+		Method to outline the objects that will store user information
 		'''
 
 
@@ -19,11 +19,11 @@ class User:
 		self.lastName = lastName
 		self.password = password
 
-# 	def save_user(self):
-# 		'''
-# 		Function to save a newly created user instance
-# 		'''
-# 		User.users_list.append(self)
+	def save_user(self):
+		'''
+		A function to store/save users
+		'''
+		User.users_list.append(self)
 		
 # class Credential:
 # 	'''
