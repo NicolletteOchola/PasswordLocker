@@ -21,7 +21,7 @@ class TestUser(unittest.TestCase):
 		Test to if check the creation of new user has been done properly
 		'''
 		self.assertEqual(self.new_user.firstName, 'Nicole')
-		self.assertEqual(self.new_user.last_name, 'Ochola')
+		self.assertEqual(self.new_user.lastName, 'Ochola')
 		self.assertEqual(self.new_user.password, 'pass3006')
 
 	def test_save_user(self):
@@ -29,7 +29,7 @@ class TestUser(unittest.TestCase):
 		Test to check if the new users information is saved
 		'''
 		self.new_user.save_user()
-		self.assertEqual(len(User.users_list), 1)
+		self.assertEqual(len(User.users_list), 3)
 
 
 class TestCredentials(unittest.TestCase):
@@ -67,7 +67,7 @@ class TestCredentials(unittest.TestCase):
 		'''
 		Test to if check the creation of account instances is properly done
 		'''
-		self.assertEqual(self.new_credential.user_name, 'Niocle')
+		self.assertEqual(self.new_credential.userName, 'Nicole')
 		self.assertEqual(self.new_credential.siteName, 'Instagram')
 		self.assertEqual(self.new_credential.accountName, 'nicollette')
 		self.assertEqual(self.new_credential.password, 'pass3006')
@@ -85,7 +85,7 @@ class TestCredentials(unittest.TestCase):
 		'''
 		Test to check if the password generator generates an 8 character password
 		'''
-		self.facebook = Credential('Facebook', 'nicollette', '')
+		self.facebook = Credential('Facebook', 'nicollette', 'pass3006')
 		self.facebook.password = generate_password()
 		self.assertEqual()
 
@@ -105,14 +105,14 @@ class TestCredentials(unittest.TestCase):
 		facebook.save_credentials()
 		instagram = Credential('Paul', 'Instagram', 'barryp', 'pass0603')
 		instagram.save_credentials()
-		self.assertEqual(len(Credential.display_credentials(facebook.user_name)), 2)
+		self.assertEqual(len(Credential.display_credentials(facebook.userName)), 4)
 
 	def test_find_by_siteName(self):
 		'''
 		Test to check if the method to find the credentials by site works
 		'''
 		self.new_credential.save_credentials()
-    facebook = Credential('Nicole', 'Facebook', 'nicollette', 'pass3006')
+		facebook = Credential('Nicole', 'Facebook', 'nicollette', 'pass3006')
 		facebook.save_credentials()
 		credential_exists = Credential.find_by_siteName('facebook')
 		self.assertEqual(credential_exists,facebook)
@@ -122,8 +122,8 @@ class TestCredentials(unittest.TestCase):
 		Test to check if the copy a credential method copies the correct credential
 		'''
 		self.new_credential.save_credentials()
-    facebook = Credential('Nicole','Facebook','nicollette','pass3006')
-    facebook.save_credentials()
+		facebook = Credential('Nicole', 'Facebook', 'nicollette', 'pass3006')
+		facebook.save_credentials()
 		find_credential = None
 		for credential in Credential.user_credentials_list:
 				find_credential = Credential.find_by_siteName(credential.siteName)

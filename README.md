@@ -1,4 +1,4 @@
-### PASSWORD LOCKER
+# PASSWORD LOCKER
 This is a python application that allows users to generte passwords randomly to enhance security. It also allows useres to store their credentials for different websites and their respective passwords.
 
 ## Author

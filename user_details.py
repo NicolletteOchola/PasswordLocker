@@ -96,5 +96,3 @@ class Credential:
 		'''
 		find_credential = Credential.find_by_siteName(siteName)
 		return pyperclip.copy(find_credential.password)
-
-# © 2019 GitHub, Inc.
