@@ -90,26 +90,17 @@ class TestCredentials(unittest.TestCase):
 		Credential.credentials_list = []
 		User.users_list = []
 
-# 	def test_display_credentials(self):
-# 		'''
-# 		Test to check if the display_credentials method, displays the correct credentials.
-# 		'''
-# 		self.new_credential.save_credentials()
-# 		twitter = Credential('Jane','Twitter','maryjoe','pswd100')
-# 		twitter.save_credentials()
-# 		gmail = Credential('Jane','Gmail','maryjoe','pswd200')
-# 		gmail.save_credentials()
-# 		self.assertEqual(len(Credential.display_credentials(twitter.user_name)),2)
+	def test_display_credentials(self):
+		'''
+		Test to check if the method to display credentials works
+		'''
+		self.new_credential.save_credentials()
+		facebook = Credential('Nicole','Facebook','nicollette','pass3006')
+		facebook.save_credentials()
+		instagram = Credential('Paul','Instagram','barryp','pass0603')
+		instagram.save_credentials()
+		self.assertEqual(len(Credential.display_credentials(facebook.user_name)),2)
 
-# 	def test_find_by_site_name(self):
-# 		'''
-# 		Test to check if the find_by_site_name method returns the correct credential
-# 		'''
-# 		self.new_credential.save_credentials()
-# 		twitter = Credential('Jane','Twitter','maryjoe','pswd100')
-# 		twitter.save_credentials()
-# 		credential_exists = Credential.find_by_site_name('Twitter')
-# 		self.assertEqual(credential_exists,twitter)
 
 # 	def test_copy_credential(self):
 # 		'''
