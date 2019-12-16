@@ -75,13 +75,13 @@ class TestCredentials(unittest.TestCase):
 		facebook.save_credentials()
 		self.assertEqual(len(Credential.credentials_list),2)
 
-# 	# def test_generate_password(self):
-# 	# 	'''
-# 	# 	Test to check if the generate password generates 8 character long alphanumeric numbers
-# 	# 	'''
-# 	# 	self.twitter = Credential('Twitter','maryjoe','')
-# 	# 	self.twitter.password = generate_password()
-# 	# 	self.assertEqual()
+	def test_generate_password(self):
+		'''
+		Test to check if the password generator generates an 8 character password
+		'''
+		self.facebook = Credential('Facebook','nicollette','')
+		self.facebook.password = generate_password()
+		self.assertEqual()
 
 # 	def tearDown(self):
 # 		'''
