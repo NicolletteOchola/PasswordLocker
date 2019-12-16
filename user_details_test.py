@@ -83,12 +83,12 @@ class TestCredentials(unittest.TestCase):
 		self.facebook.password = generate_password()
 		self.assertEqual()
 
-# 	def tearDown(self):
-# 		'''
-# 		Function to clear the credentials list after every test
-# 		'''
-# 		Credential.credentials_list = []
-# 		User.users_list = []
+	def delete(self):
+		'''
+		Function to delete the information after every test
+		'''
+		Credential.credentials_list = []
+		User.users_list = []
 
 # 	def test_display_credentials(self):
 # 		'''
