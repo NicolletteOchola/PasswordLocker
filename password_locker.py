@@ -54,27 +54,27 @@ def copy_credential(sitName):
 	'''
 	return Credential.copy_credential(siteName)
 
-# def main():
-# 	print(' ')
-# 	print('Hello! Welcome to Password Locker.')
-# 	while True:
-# 		print(' ')
-# 		print("-"*60)
-# 		print('Use these codes to navigate: \n ca-Create an Account \n li-Log In \n ex-Exit')
-# 		short_code = input('Enter a choice: ').lower().strip()
-# 		if short_code == 'ex':
-# 			break
+def main():
+	print(' ')
+	print('Hello! Welcome to Password Locker.')
+	while True:
+		print(' ')
+		print("-"*60)
+		print('Use these words to choose action: \n Create-Create a new Account \n LogIn-Log Into account \n Exit-Exit from application')
+		codeWord = input('Enter a choice: ').lower().strip()
+		if codeWord == 'Exit':
+			break
 
-# 		elif short_code == 'ca':
-# 			print("-"*60)
-# 			print(' ')
-# 			print('To create a new account:')
-# 			first_name = input('Enter your first name - ').strip()
-# 			last_name = input('Enter your last name - ').strip()
-# 			password = input('Enter your password - ').strip()
-# 			save_user(create_user(first_name,last_name,password))
-# 			print(" ")
-# 			print(f'New Account Created for: {first_name} {last_name} using password: {password}')
+		elif codeWord == 'Create':
+			print("-"*60)
+			print(' ')
+			print('To create a new account:')
+			first_name = input('Enter your first name - ').strip()
+			last_name = input('Enter your last name - ').strip()
+			password = input('Enter your password - ').strip()
+			save_user(create_user(first_name,last_name,password))
+			print(" ")
+			print(f'New Account Created for: {first_name} {last_name} using password: {password}')
 # 		elif short_code == 'li':
 # 			print("-"*60)
 # 			print(' ')
