@@ -29,18 +29,18 @@ def generate_password():
 	gen_pass = Credential.generate_password()
 	return gen_pass
 
-# def create_credential(user_name,site_name,account_name,password):
-# 	'''
-# 	Function to create a new credential
-# 	'''
-# 	new_credential=Credential(user_name,site_name,account_name,password)
-# 	return new_credential
+def create_credential(user_name,site_name,account_name,password):
+	'''
+	Function to add new credentials
+	'''
+	new_credential=Credential(user_name,site_name,account_name,password)
+	return new_credential
 
-# def save_credential(credential):
-# 	'''
-# 	Function to save a newly created credential
-# 	'''
-# 	Credential.save_credentials(credential)
+def save_credential(credential):
+	'''
+	Function to save a newly created credential
+	'''
+	Credential.save_credentials(credential)
 
 # def display_credentials(user_name):
 # 	'''
