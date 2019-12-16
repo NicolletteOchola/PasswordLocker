@@ -56,7 +56,7 @@ def copy_credential(sitName):
 
 def main():
 	print(' ')
-	print('Hello! Welcome to Password Locker.')
+	print('Hello! Welcome to Password Locker, where your passwords are safe!')
 	while True:
 		print(' ')
 		print("-"*30)
@@ -134,7 +134,7 @@ def main():
 							print(' ')
 							print("Sorry, no credentials stored for this username")
 							print(' ')
-					elif codeWord == 'cce':
+					elif codeWord == 'cc':
 						print(' ')
 						chosen_site = input('Enter the name of the site: ')
 						copy_credential(chosen_site)
