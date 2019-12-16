@@ -40,7 +40,7 @@ class Credential:
 		current_user = ''
 		for user in User.users_list:
 			if (user.firstName == firstName and user.password == password):
-				current_user = user.first_name
+				current_user = user.firstName
 		return current_user
 
 	def __init__(self,userName,siteName,accountName,password):
@@ -68,33 +68,33 @@ class Credential:
 		return gen_pass
 
 	@classmethod
-	def display_credentials(cls,user_name):
+	def display_credentials(cls,userName):
 		'''
 		Class method to display the list of credentials saved
 		'''
 		user_credentials_list = []
 		for credential in cls.credentials_list:
-			if credential.user_name == user_name:
+			if credential.userName == userName:
 				user_credentials_list.append(credential)
 		return user_credentials_list
 				
 
 	
-# 	@classmethod
-# 	def find_by_site_name(cls, site_name):
-# 		'''
-# 		Method that takes in a site_name and returns a credential that matches that site_name.
-# 		'''
-# 		for credential in cls.credentials_list:
-# 			if credential.site_name == site_name:
-# 				return credential
+	@classmethod
+	def find_by_siteName(cls, siteName):
+		'''
+		Method that takes in a siteName and returns a credential that matches that siteName.
+		'''
+		for credential in cls.credentials_list:
+			if credential.siteName == siteName:
+				return credential
 
-# 	@classmethod
-# 	def copy_credential(cls,site_name):
-# 		'''
-# 		Class method that copies a credential's info after the credential's site name is entered
-# 		'''
-# 		find_credential = Credential.find_by_site_name(site_name)
-# 		return pyperclip.copy(find_credential.password)
+	@classmethod
+	def copy_credential(cls,siteName):
+		'''
+		Class method that copies a credential's info after the credential's site name is entered
+		'''
+		find_credential = Credential.find_by_siteName(siteName)
+		return pyperclip.copy(find_credential.password)
 
 # © 2019 GitHub, Inc.

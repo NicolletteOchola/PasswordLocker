@@ -15,11 +15,11 @@ def save_user(user):
 	User.save_user(user)
 
 
-def verify_user(first_name,password):
+def verify_user(firstName,password):
 	'''
 	Function that checks if the user exists (Verification)
 	'''
-	checking_user = Credential.check_user(first_name,password)
+	checking_user = Credential.check_user(firstName,password)
 	return checking_user
 
 def generate_password():
@@ -59,14 +59,14 @@ def main():
 	print('Hello! Welcome to Password Locker.')
 	while True:
 		print(' ')
-		print("-"*60)
+		print("-"*30)
 		print('Use these words to choose action: \n c - Create a new Account \n l - Log Into account \n e - Exit from application')
 		codeWord = input('Enter a choice: ').lower().strip()
 		if codeWord == 'Exit':
 			break
 
 		elif codeWord == 'c':
-			print("-"*60)
+			print("-"*30)
 			print(' ')
 			print('To create a new account:')
 			firstName = input('Enter your first name - ').strip()
@@ -74,10 +74,10 @@ def main():
 			password = input('Enter your password - ').strip()
 			save_user(create_user(firstName,lastName,password))
 			print(" ")
-			print(f'New Account details: {firstName} {lastName} using password: {password}')
+			print(f'New Account details: {firstName} {lastName} \n Password: {password}')
 
 		elif codeWord == 'l':
-			print("-"*60)
+			print("-"*30)
 			print(' ')
 			print('To login, please enter your account details:')
 			userName = input('Enter Username - ').strip()
@@ -88,13 +88,13 @@ def main():
 				print(f'Welcome {userName}. Please choose an option to continue.')
 				print(' ')
 				while True:
-					print("-"*60)
+					print("-"*30)
 					print('Navigation codes: \n c - Create a Credential \n d - Display Credentials \n cc - Copy Password \n e - Exit')
 					codeWord = input('Enter an action: ').lower().strip()
-					print("-"*60)
+					print("-"*30)
 					if codeWord == 'e':
 						print(" ")
-						print(f'Thank you! Have a nice day :) {userName}')
+						print(f'Thank you! Have a nice day {userName} :)')
 						break
 					elif codeWord == 'c':
 						print(' ')
@@ -103,10 +103,10 @@ def main():
 						accountName = input('Account name - ').strip()
 						while True:
 							print(' ')
-							print("-"*60)
+							print("-"*30)
 							print('Choose an option: \n p - enter existing password \n n - generate a password \n e - Exit')
 							psw_choice = input('Enter an option: ').lower().strip()
-							print("-"*60)
+							print("-"*30)
 							if psw_choice == 'p':
 								print(" ")
 								password = input('Enter your password: ').strip()
@@ -120,15 +120,15 @@ def main():
 								print('Sorry, not an option. Please try again')
 						save_credential(create_credential(userName,siteName,accountName,password))
 						print(' ')
-						print(f'Credential Created: Site Name: {site_name} - Account Name: {account_name} - Password: {password}')
+						print(f'Credential Created: Site Name: {siteName} - Account Name: {accountName} - Password: {password}')
 						print(' ')
 					elif codeWord == 'd':
 						print(' ')
 						if display_credentials(userName):
 							print('Below is a list of your credentials:')
 							print(' ')
-							for credential in display_credentials(user_name):
-								print(f'Site Name: {credential.site_name} \n  Account Name: {credential.account_name} \n - Password: {credential.password}')
+							for credential in display_credentials(userName):
+								print(f'Site Name: {credential.siteName} \n  Account Name: {credential.accountName} \n - Password: {credential.password}')
 							print(' ')	
 						else:
 							print(' ')
@@ -147,7 +147,7 @@ def main():
 				print('Sorry, wrong details, please try again or create a new account')		
 		
 		else:
-			print("-"*60)
+			print("-"*30)
 			print(' ')
 			print('Sorry, not an option. Please try again.')
 if __name__ == '__main__':
