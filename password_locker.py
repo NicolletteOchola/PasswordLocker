@@ -60,12 +60,12 @@ def main():
 	while True:
 		print(' ')
 		print("-"*60)
-		print('Use these words to choose action: \n Create - Create a new Account \n LogIn - Log Into account \n Exit - Exit from application')
+		print('Use these words to choose action: \n c - Create a new Account \n l - Log Into account \n e - Exit from application')
 		codeWord = input('Enter a choice: ').lower().strip()
 		if codeWord == 'Exit':
 			break
 
-		elif codeWord == 'Create':
+		elif codeWord == 'c':
 			print("-"*60)
 			print(' ')
 			print('To create a new account:')
@@ -76,7 +76,7 @@ def main():
 			print(" ")
 			print(f'New Account details: {firstName} {lastName} using password: {password}')
 
-		elif short_code == 'LogIn':
+		elif codeWord == 'l':
 			print("-"*60)
 			print(' ')
 			print('To login, please enter your account details:')
@@ -89,14 +89,14 @@ def main():
 				print(' ')
 				while True:
 					print("-"*60)
-					print('Navigation codes: \n Create - Create a Credential \n Diasplay - Display Credentials \n Copy - Copy Password \n Exit - Exit')
-					short_code = input('Enter an action: ').lower().strip()
+					print('Navigation codes: \n c - Create a Credential \n d - Display Credentials \n cc - Copy Password \n e - Exit')
+					codeWord = input('Enter an action: ').lower().strip()
 					print("-"*60)
-					if short_code == 'Exit':
+					if codeWord == 'e':
 						print(" ")
 						print(f'Thank you! Have a nice day :) {userName}')
 						break
-					elif short_code == 'Create':
+					elif codeWord == 'c':
 						print(' ')
 						print('Enter your credential details:')
 						siteName = input('Site name - ').strip()
@@ -104,17 +104,17 @@ def main():
 						while True:
 							print(' ')
 							print("-"*60)
-							print('Choose an option: \n Password - enter existing password \n New - generate a password \n Exit - Exit')
+							print('Choose an option: \n p - enter existing password \n n - generate a password \n e - Exit')
 							psw_choice = input('Enter an option: ').lower().strip()
 							print("-"*60)
-							if psw_choice == 'Password':
+							if psw_choice == 'p':
 								print(" ")
 								password = input('Enter your password: ').strip()
 								break
-							elif psw_choice == 'New':
+							elif psw_choice == 'n':
 								password = generate_password()
 								break
-							elif psw_choice == 'Exit':
+							elif psw_choice == 'e':
 								break
 							else:
 								print('Sorry, not an option. Please try again')
@@ -122,7 +122,7 @@ def main():
 						print(' ')
 						print(f'Credential Created: Site Name: {site_name} - Account Name: {account_name} - Password: {password}')
 						print(' ')
-					elif short_code == 'Display':
+					elif codeWord == 'd':
 						print(' ')
 						if display_credentials(userName):
 							print('Below is a list of your credentials:')
@@ -134,7 +134,7 @@ def main():
 							print(' ')
 							print("Sorry, no credentials stored for this username")
 							print(' ')
-					elif short_code == 'Copy':
+					elif codeWord == 'cce':
 						print(' ')
 						chosen_site = input('Enter the name of the site: ')
 						copy_credential(chosen_site)
@@ -150,12 +150,5 @@ def main():
 			print("-"*60)
 			print(' ')
 			print('Sorry, not an option. Please try again.')
-				
-
-
-
-
-
-
-# if __name__ == '__main__':
-# 	main()
+if __name__ == '__main__':
+	main()
