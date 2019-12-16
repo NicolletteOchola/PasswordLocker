@@ -101,33 +101,30 @@ class TestCredentials(unittest.TestCase):
 		instagram.save_credentials()
 		self.assertEqual(len(Credential.display_credentials(facebook.user_name)),2)
 
+	def test_find_by_site_name(self):
+		'''
+		Test to check if the method to find the credentials by site works
+		'''
+		self.new_credential.save_credentials()
+    facebook = Credential('Nicole','Facebook','nicollette','pass3006')
+		facebook.save_credentials()
+		credential_exists = Credential.find_by_site_name('facebook')
+		self.assertEqual(credential_exists,facebook)
 
-# 	def test_copy_credential(self):
-# 		'''
-# 		Test to check if the copy a credential method copies the correct credential
-# 		'''
-# 		self.new_credential.save_credentials()
-# 		twitter = Credential('Jane','Twitter','maryjoe','pswd100')
-# 		twitter.save_credentials()
-# 		find_credential = None
-# 		for credential in Credential.user_credentials_list:
-# 				find_credential =Credential.find_by_site_name(credential.site_name)
-# 				return pyperclip.copy(find_credential.password)
-# 		Credential.copy_credential(self.new_credential.site_name)
-# 		self.assertEqual('pswd100',pyperclip.paste())
-# 		print(pyperclip.paste())
+	def test_copy_credential(self):
+		'''
+		Test to check if the copy a credential method copies the correct credential
+		'''
+		self.new_credential.save_credentials()
+    facebook = Credential('Nicole','Facebook','nicollette','pass3006')
+    facebook.save_credentials()
+		find_credential = None
+		for credential in Credential.user_credentials_list:
+				find_credential = Credential.find_by_site_name(credential.site_name)
+				return pyperclip.copy(find_credential.password)
+		Credential.copy_credential(self.new_credential.site_name)
+		self.assertEqual('pass3006',pyperclip.paste())
+		print(pyperclip.paste())
 
-# if __name__ == '__main__':
-# 	unittest.main(verbosity=2)
-# © 2019 GitHub, Inc.
-# Terms
-# Privacy
-# Security
-# Status
-# Help
-# Contact GitHub
-# Pricing
-# API
-# Training
-# Blog
-# About
+if __name__ == '__main__':
+	unittest.main(verbosity = 2)
